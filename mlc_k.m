@@ -74,11 +74,9 @@ c3 = m3 - 3*m1*m2 + 2*m1^3;
 
 val_left=c2^3/c3^2;
 
-% eq=''val_left=psi(1,x).^3/psi(2,x).^2;
-% res=solve(eq);
-% 
-f=@(x)norm(psi(1,x).^3/psi(2,x).^2-val_left).^2;
-[x,err]=fminsearch(f,30);
+
+f=@(k)norm(psi(1,k).^3/psi(2,k).^2-val_left).^2;
+[k,err]=fminsearch(f,1e-5);
 
 
 
