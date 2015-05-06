@@ -1,8 +1,5 @@
 clc;
 clear all;
-clear; clc;tic;
-close all;
-
 
 
 row =83;     col =83 ;     data = zeros(row,col,9);
@@ -87,6 +84,10 @@ d=exp(c1-psi(k)/v);
 
 
 
+%calculate the covariance of the noise
+
+
+up_stat=(gamma(k+1/real(v))*exp(real(c1)-psi(1)-psi(k)/real(v)))/gamma(k);
 
 
 
