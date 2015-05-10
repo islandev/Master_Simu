@@ -10,14 +10,16 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       157,          7]
-NotebookDataLength[     16571,        475]
-NotebookOptionsPosition[     15061,        428]
-NotebookOutlinePosition[     15438,        445]
-CellTagsIndexPosition[     15395,        442]
+NotebookDataLength[     18809,        556]
+NotebookOptionsPosition[     16674,        489]
+NotebookOutlinePosition[     17051,        506]
+CellTagsIndexPosition[     17008,        503]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
+
+Cell[CellGroupData[{
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
   RowBox[{
@@ -75,53 +77,112 @@ Cell[BoxData[
        RowBox[{"resultval", "=", 
         RowBox[{"upstat", "*", 
          RowBox[{"hval", "/", "dowstat"}]}]}], ";", "\[IndentingNewLine]", 
-       "resultval"}]}], "]"}]}], "\[IndentingNewLine]", 
+       "resultval"}]}], "]"}]}], "\[IndentingNewLine]", "clc", 
    "\[IndentingNewLine]"}]}]], "Input",
  CellChangeTimes->{
   3.6399069155280914`*^9, {3.6399069624083576`*^9, 3.6399071164690247`*^9}, {
    3.639907280176774*^9, 3.639907565735097*^9}, {3.639907623338843*^9, 
    3.639907637476946*^9}, 3.6399111382685475`*^9, {3.6399114433279963`*^9, 
-   3.6399114496823597`*^9}, 3.6399114933568573`*^9}],
+   3.6399114496823597`*^9}, 3.6399114933568573`*^9, {3.6399727150431433`*^9, 
+   3.6399727491300926`*^9}, {3.639972860698474*^9, 3.639972860959489*^9}}],
 
-Cell[CellGroupData[{
+Cell[BoxData["clc"], "Output",
+ CellChangeTimes->{3.6399728614575176`*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.639972732316131*^9, 3.639972751619235*^9}}],
+
+Cell[BoxData[
+ RowBox[{"PolyGamma", "[", "4", "]"}]], "Input",
+ CellChangeTimes->{{3.6399727527563004`*^9, 3.6399727688412204`*^9}}],
 
 Cell[BoxData[
  RowBox[{
-  RowBox[{"HWishart", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"1.873536984062531", "*", 
-      RowBox[{"10", "^", 
-       RowBox[{"(", 
-        RowBox[{"-", "7"}], ")"}]}]}], ",", "9.1106", ",", "0.1249", ",", "4",
-      ",", "1", ",", "0.0031"}], "}"}]}], "\[IndentingNewLine]", 
-  "\[IndentingNewLine]"}]], "Input",
+  RowBox[{"(", 
+   RowBox[{
+    FractionBox["11", "6"], "-", "EulerGamma"}], ")"}], "*", 
+  RowBox[{"Gamma", "[", "9.1106", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6399727802228713`*^9, 3.6399728101865854`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"64221.879474683694", "*", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"1.873536984062531", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"(", 
+       RowBox[{"-", "7"}], ")"}]}]}], ")"}], "^", 
+   RowBox[{"-", "1"}]}]}]], "Input",
+ CellChangeTimes->{{3.6399728157399025`*^9, 3.6399728413653684`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{"3.427841564964817`*^11", "\[IndentingNewLine]", "clc", "\
+\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.639972852743019*^9, 3.6399728558441963`*^9}}],
+
+Cell[BoxData["3.427841564964817`*^11"], "Output",
+ CellChangeTimes->{3.639972856200217*^9}],
+
+Cell[BoxData["clc"], "Output",
+ CellChangeTimes->{3.639972856202217*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"HWishart", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"1.873536984062531", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"(", 
+       RowBox[{"-", "7"}], ")"}]}]}], ",", "9.1106", ",", "0.1249", ",", "4", 
+    ",", "1", ",", "0.0031"}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Gamma", "[", "2", "]"}]}], "Input",
  CellChangeTimes->{{3.639911109189884*^9, 3.6399111503252373`*^9}, {
   3.6399111968879004`*^9, 3.63991120667146*^9}, {3.6399113270263443`*^9, 
-  3.639911460278966*^9}, {3.639911515115102*^9, 3.6399115172582245`*^9}}],
+  3.639911460278966*^9}, {3.639911515115102*^9, 3.6399115172582245`*^9}, {
+  3.639972621425789*^9, 3.6399726317703805`*^9}}],
 
 Cell[BoxData[
  RowBox[{"{", 
   RowBox[{
-   RowBox[{"1.873536984062531`*^-7", " ", "H_Wishart"}], ",", 
-   RowBox[{"9.1106`", " ", "H_Wishart"}], ",", 
-   RowBox[{"0.1249`", " ", "H_Wishart"}], ",", 
-   RowBox[{"4", " ", "H_Wishart"}], ",", "H_Wishart", ",", 
-   RowBox[{"0.0031`", " ", "H_Wishart"}]}], "}"}]], "Output",
- CellChangeTimes->{{3.6399113930891223`*^9, 3.639911455833711*^9}}],
+   RowBox[{"1.873536984062531`*^-7", " ", "HWishart"}], ",", 
+   RowBox[{"9.1106`", " ", "HWishart"}], ",", 
+   RowBox[{"0.1249`", " ", "HWishart"}], ",", 
+   RowBox[{"4", " ", "HWishart"}], ",", "HWishart", ",", 
+   RowBox[{"0.0031`", " ", "HWishart"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6399113930891223`*^9, 3.639911455833711*^9}, {
+  3.6399726088800707`*^9, 3.6399726324744205`*^9}}]
+}, Open  ]],
 
 Cell[BoxData[
- RowBox[{
-  StyleBox[
-   RowBox[{"Information", "::", "nomatch"}], "MessageName"], 
-  RowBox[{
-  ":", " "}], "\<\"\:6ca1\:6709\:627e\:5230\:5339\:914d \
-\[NoBreak]\\!\\(\\\"H_Wishart\\\"\\)\[NoBreak] \:7684\:7b26\:53f7. \
-\\!\\(\\*ButtonBox[\\\"\[RightSkeleton]\\\", ButtonStyle->\\\"Link\\\", \
-ButtonFrame->None, \
-ButtonData:>\\\"paclet:ref/message/Information/nomatch\\\", ButtonNote -> \
-\\\"Information::nomatch\\\"]\\)\"\>"}]], "Message", "MSG",
- CellChangeTimes->{{3.6399114360685806`*^9, 3.639911455858713*^9}}]
+ RowBox[{"PolyGamma", "[", 
+  RowBox[{"4", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.639972636172632*^9, 3.639972667402418*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PolyGamma", "[", 
+  RowBox[{"4", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{3.63997272145751*^9}],
+
+Cell[BoxData[
+ RowBox[{"PolyGamma", "[", 
+  RowBox[{"4", ",", "3"}], "]"}]], "Output",
+ CellChangeTimes->{3.639972721493512*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["PolyGamma"], "Input",
+ CellChangeTimes->{{3.6399726723317003`*^9, 3.639972682392276*^9}}],
+
+Cell[BoxData["PolyGamma"], "Output",
+ CellChangeTimes->{3.6399726837423525`*^9}]
 }, Open  ]],
 
 Cell[BoxData[""], "Input",
@@ -427,7 +488,7 @@ Cell[BoxData[""], "Input",
  CellChangeTimes->{3.6399069136270795`*^9}]
 },
 WindowSize->{707, 677},
-WindowMargins->{{369, Automatic}, {Automatic, 58}},
+WindowMargins->{{Automatic, 380}, {Automatic, 58}},
 ShowSelection->True,
 FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (2013\:5e742\:670813\
 \:65e5)",
@@ -444,39 +505,59 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[557, 20, 2348, 63, 212, "Input"],
 Cell[CellGroupData[{
-Cell[2930, 87, 562, 13, 72, InheritFromParent],
-Cell[3495, 102, 388, 8, 55, "Output"],
-Cell[3886, 112, 534, 11, 24, "Message"]
+Cell[579, 22, 2455, 64, 212, "Input"],
+Cell[3037, 88, 74, 1, 31, "Output"]
 }, Open  ]],
-Cell[4435, 126, 93, 1, 31, InheritFromParent],
+Cell[3126, 92, 92, 1, 31, InheritFromParent],
+Cell[3221, 95, 132, 2, 31, InheritFromParent],
+Cell[3356, 99, 236, 6, 46, InheritFromParent],
+Cell[3595, 107, 320, 9, 31, InheritFromParent],
 Cell[CellGroupData[{
-Cell[4553, 131, 90, 1, 31, InheritFromParent],
-Cell[4646, 134, 542, 13, 24, "Message"],
-Cell[5191, 149, 538, 13, 24, "Message"],
-Cell[5732, 164, 531, 12, 24, "Message"],
-Cell[6266, 178, 468, 12, 24, "Message"],
-Cell[6737, 192, 492, 12, 24, "Message"],
-Cell[7232, 206, 507, 12, 24, "Message"],
-Cell[7742, 220, 442, 12, 24, "Message"],
-Cell[8187, 234, 464, 12, 24, "Message"],
-Cell[8654, 248, 479, 12, 24, "Message"],
-Cell[9136, 262, 414, 11, 24, "Message"],
-Cell[9553, 275, 541, 12, 26, "Message"],
-Cell[10097, 289, 541, 12, 26, "Message"],
-Cell[10641, 303, 412, 11, 24, "Message"],
-Cell[11056, 316, 543, 12, 26, "Message"],
-Cell[11602, 330, 541, 12, 26, "Message"],
-Cell[12146, 344, 411, 11, 24, "Message"],
-Cell[12560, 357, 513, 12, 26, "Message"],
-Cell[13076, 371, 511, 12, 26, "Message"],
-Cell[13590, 385, 484, 11, 26, "Message"],
-Cell[14077, 398, 412, 9, 26, "Message"],
-Cell[14492, 409, 385, 10, 24, "Message"]
+Cell[3940, 120, 173, 2, 72, InheritFromParent],
+Cell[4116, 124, 91, 1, 31, "Output"],
+Cell[4210, 127, 72, 1, 31, "Output"]
 }, Open  ]],
-Cell[14892, 422, 92, 1, 31, "Input"],
-Cell[14987, 425, 70, 1, 31, "Input"]
+Cell[CellGroupData[{
+Cell[4319, 133, 605, 13, 52, "Input"],
+Cell[4927, 148, 435, 9, 55, "Output"]
+}, Open  ]],
+Cell[5377, 160, 151, 3, 31, InheritFromParent],
+Cell[CellGroupData[{
+Cell[5553, 167, 126, 3, 31, InheritFromParent],
+Cell[5682, 172, 128, 3, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5847, 180, 103, 1, 31, "Input"],
+Cell[5953, 183, 80, 1, 31, "Output"]
+}, Open  ]],
+Cell[6048, 187, 93, 1, 31, "Input"],
+Cell[CellGroupData[{
+Cell[6166, 192, 90, 1, 31, "Input"],
+Cell[6259, 195, 542, 13, 24, "Message"],
+Cell[6804, 210, 538, 13, 24, "Message"],
+Cell[7345, 225, 531, 12, 24, "Message"],
+Cell[7879, 239, 468, 12, 24, "Message"],
+Cell[8350, 253, 492, 12, 24, "Message"],
+Cell[8845, 267, 507, 12, 24, "Message"],
+Cell[9355, 281, 442, 12, 24, "Message"],
+Cell[9800, 295, 464, 12, 24, "Message"],
+Cell[10267, 309, 479, 12, 24, "Message"],
+Cell[10749, 323, 414, 11, 24, "Message"],
+Cell[11166, 336, 541, 12, 26, "Message"],
+Cell[11710, 350, 541, 12, 26, "Message"],
+Cell[12254, 364, 412, 11, 24, "Message"],
+Cell[12669, 377, 543, 12, 26, "Message"],
+Cell[13215, 391, 541, 12, 26, "Message"],
+Cell[13759, 405, 411, 11, 24, "Message"],
+Cell[14173, 418, 513, 12, 26, "Message"],
+Cell[14689, 432, 511, 12, 26, "Message"],
+Cell[15203, 446, 484, 11, 26, "Message"],
+Cell[15690, 459, 412, 9, 26, "Message"],
+Cell[16105, 470, 385, 10, 24, "Message"]
+}, Open  ]],
+Cell[16505, 483, 92, 1, 31, "Input"],
+Cell[16600, 486, 70, 1, 31, "Input"]
 }
 ]
 *)
