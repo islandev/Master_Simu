@@ -1,0 +1,121 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3586,        112]
+NotebookOptionsPosition[      3332,         98]
+NotebookOutlinePosition[      3687,        114]
+CellTagsIndexPosition[      3644,        111]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"HWishart", "[", 
+     RowBox[{
+     "k_", ",", "v_", ",", "z_", ",", "L_", ",", "d_", ",", "\[Sigma]_", ",", 
+      "c_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"p1", ",", "p2", ",", "p3", ",", "F"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"p1", "=", 
+        RowBox[{
+         RowBox[{"L", "^", 
+          RowBox[{"(", 
+           RowBox[{"L", "*", "d"}], ")"}]}], "*", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"L", "/", "c"}], ")"}], "*", "L"}], ")"}], "^", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"k", "*", "v"}], "-", 
+            RowBox[{"L", "*", "d"}]}], ")"}]}], "*", 
+         RowBox[{"z", "^", 
+          RowBox[{"(", 
+           RowBox[{"L", "-", "d"}], ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"p2", "=", 
+        RowBox[{
+         RowBox[{"\[Sigma]", "^", 
+          RowBox[{"(", 
+           RowBox[{"k", "*", "v"}], ")"}]}], "*", 
+         RowBox[{"Gamma", "[", "k", "]"}], "*", 
+         RowBox[{"PolyGamma", "[", 
+          RowBox[{"d", ",", "L"}], "]"}], "*", 
+         RowBox[{"c", "^", "L"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"p3", "=", 
+        RowBox[{"FoxH", "[", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0"}], "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", "0"}], "}"}], "}"}]}], "}"}], ",", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{"1", "/", "v"}]}], "}"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"L", "*", "d"}], "-", 
+                RowBox[{"k", "*", "v"}]}], ",", "1"}], "}"}], "}"}]}], "}"}], 
+          ",", 
+          RowBox[{"L", "*", 
+           RowBox[{"z", "/", "c"}], "*", "\[Sigma]"}]}], "]"}]}], ";", 
+       "\[LineSeparator]", 
+       RowBox[{"F", "=", 
+        RowBox[{"p1", "*", 
+         RowBox[{"p2", "/", "p3"}]}]}], ";", "\[LineSeparator]", "F"}]}], 
+     "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.6403395113371515`*^9, 3.6403395133272653`*^9}, {
+  3.6403399426127424`*^9, 3.640340096356536*^9}, {3.640340960438896*^9, 
+  3.6403410825528803`*^9}, {3.6403411527228937`*^9, 3.640341245340192*^9}, {
+  3.640341278148068*^9, 3.6403412919808593`*^9}, {3.640341484754885*^9, 
+  3.640341509473299*^9}}]
+},
+WindowSize->{707, 677},
+WindowMargins->{{Automatic, 86}, {Automatic, 23}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (2013\:5e742\:670813\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 2771, 76, 212, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

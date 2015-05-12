@@ -1,0 +1,63 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      1439,         53]
+NotebookOptionsPosition[      1188,         39]
+NotebookOutlinePosition[      1542,         55]
+CellTagsIndexPosition[      1499,         52]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"HWishart", "[", 
+  RowBox[{"9.1106", ",", "0.1249", ",", "0.0031", ",", "4", ",", "1", ",", 
+   RowBox[{
+    RowBox[{"1.8540", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"(", 
+       RowBox[{"-", "16"}], ")"}]}]}], "+", 
+    RowBox[{"2.3849", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"(", 
+       RowBox[{"-", "33"}], ")"}]}], "I"}]}], ",", 
+   RowBox[{"1.873536984062531", "*", 
+    RowBox[{"10", "^", 
+     RowBox[{"(", 
+      RowBox[{"-", "07"}], ")"}]}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.640341466444838*^9, 3.64034147015105*^9}, {
+  3.6403415401440535`*^9, 3.6403416152373486`*^9}}]
+},
+WindowSize->{707, 677},
+WindowMargins->{{96, Automatic}, {8, Automatic}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (2013\:5e742\:670813\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[557, 20, 627, 17, 52, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

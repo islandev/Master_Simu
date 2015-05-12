@@ -67,9 +67,9 @@ m3=m3/num;
 
 
 
-c1 = m1;
-c2 = m2 - m1^2;
-c3 = m3 - 3*m1*m2 + 2*m1^3;
+c1 =real( m1);
+c2 =real( m2 - m1^2);
+c3 = real(m3 - 3*m1*m2 + 2*m1^3);
 
 val_left=c2^3/c3^2; 
 
@@ -79,7 +79,7 @@ f=@(k)norm(psi(1,k).^3/psi(2,k).^2-val_left).^2;
 
 v=(psi(1,k)/c2).^0.5;
 
-d=exp(c1-psi(k)/v);
+d=exp(real(c1)-psi(0,k)/real(v));
 
 
 
