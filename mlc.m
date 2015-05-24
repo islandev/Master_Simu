@@ -97,3 +97,4 @@ up_stat=(gamma(k+1/real(v))*exp(real(c1)-psi(1)-psi(k)/real(v)))/gamma(k);
 
 
 
+

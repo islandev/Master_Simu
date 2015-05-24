@@ -79,19 +79,15 @@ c2 =real( m2_x - m1_x^2);
 c3 = real(m3_x - 3*m1_x*m2_x + 2*m1_x^3);
 
 
-
-
-
-val_left=c2^3/c3^2;
-
-
-
-f=@(k)norm(psi(1,k).^3/psi(2,k).^2-val_left).^2;
+f=@(k)norm(psi(1,k)-c2).^2;
 [k,err]=fminsearch(f,0);
+d=exp(c1+psi(k));
 
-v=(psi(1,k)/c2).^0.5;
 
-d=exp(real(c1)-psi(0,k)/real(v));
+
+
+
+
 
 
 
@@ -114,17 +110,13 @@ c3_co = real(m3_co - 3*m1_co*m2_co + 2*m1_co^3);
 
 
 
-val_left_co =c2_co ^3/c3_co^2;
 
 
 
-f_co =@(k_co )norm(psi(1,k_co ).^3/psi(2,k_co ).^2-val_left_co ).^2;
-[k_co ,err_co ]=fminsearch(f_co ,0);
 
-v_co =(psi(1,k_co )/c2).^0.5;
-
-d_co =exp(real(c1_co )-psi(0,k_co )/real(v_co ));
-
+f_co=@(k_co)norm(psi(1,k_co)-c2_co).^2;
+[k_co,err_co]=fminsearch(f_co,0);
+d_co=exp(c1-psi(k_co));
 
 
 
