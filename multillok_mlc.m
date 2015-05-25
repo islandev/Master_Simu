@@ -51,8 +51,8 @@ for i=1:row
         m2_co=log(det(c_matrix))^2+m2_co;
         m3_co=log(det(c_matrix))^3+m3_co;
         m1_x=log(det(z_matrix))-log(det(c_matrix))+m1_x;
-        m2_x=log(det(z_matrix))^2-log(det(c_matrix))^2+m2_x;
-        m3_x=log(det(z_matrix))^3-log(det(c_matrix))^3+m3_x;
+        m2_x=log(det(z_matrix)-det(c_matrix))^2+m2_x;
+        m3_x=log(det(z_matrix)-det(c_matrix))^3+m3_x;
     end
 end
 

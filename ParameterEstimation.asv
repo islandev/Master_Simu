@@ -1,4 +1,4 @@
-function [ k,d,v ,covchh,covchv,covcvv,ksd_hh,ksd_hv,ksd_vv] = ParameterEstimation( filePath,row,col )
+function [ k,d,v ,covchh,covchv,covcvv] = ParameterEstimation( filePath,row,col )
 %UNTITLED Summary of this function goes here
 %输入：数据的位置 ，数据的行 列
 %输出：H-wishart的参数 k d  v 乘性噪声的方差
@@ -109,9 +109,9 @@ L=9;
 dim=1;
 
 
-ksd_hh=HWishartKSD(c11,k,v,d ,covchh,col,row,L,dim);
-ksd_hv=HWishartKSD(c22,k,v,d ,covchv,col,row,L,dim);
-ksd_vv=HWishartKSD(c33,k,v,d ,covcvv,col,row,L,dim);
+ksd_hh=HWishartKSD(c11,k,v,d ,cov,col,row,L,dim);
+ksd_hv=HWishartKSD(c11,k,v,d ,cov,col,row,L,dim);
+ksd_vv=HWishartKSD(c11,k,v,d ,cov,col,row,L,dim);
 
 
 

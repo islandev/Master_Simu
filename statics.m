@@ -9,7 +9,7 @@ c11(:,:) = fread(fIn,[col,row],'float').';     fclose(fIn);
 cnt=[];
 spa=reshape(c11,83,83);
 max_val=max(max(c11))/precision_cnt;
-
+    
 for i=0:(precision_cnt-1);
     flag_c11=(c11>max_val*i&c11<=max_val*(i+1));
     cnt(i+1) =sum((sum(flag_c11,1)),2);

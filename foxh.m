@@ -67,15 +67,15 @@ while ~converged && t<maxitr
     if n==0&&q==0
          B_num=prodgamma(Poles_B,B_tmp{1});
          A_num=1;
-     B_den=1;
-    A_den=p1;
+        B_den=1;
+        A_den=1;
      else
         
     B_num=prodgamma(Poles_B,B_tmp{1});
     A_num=prodgamma(Poles_B,A_tmp{1});
     B_den=prodgamma(Poles_B,B_tmp{2});
     A_den=prodgamma(Poles_B,A_tmp{2});
-        end
+    end
 
     Z=x.^(-Poles_B);
     
@@ -104,7 +104,7 @@ end
 
 y=y_new;
 
-
+y
 
 
 
