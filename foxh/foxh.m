@@ -1,6 +1,6 @@
 function [y,P]=foxh(x,B,A,res)
 % This is a toy implementation for the Fox's H-function.
-% 20150523 by Liu Chi
+
 %---------------------------------
 % Variables
 % x -- The x is a value.
@@ -30,17 +30,13 @@ q=size(B{2},2);
 n=size(A{1},2);
 p=size(A{2},2);
 
-if n==0 && q==0
-    B_tmp=B;
-else    
-
+B_tmp=B;
 B_tmp{2}(1,:)=1-B{2}(1,:);
 B_tmp{2}(2,:)= -B{2}(2,:);
 
 A_tmp=A;
 A_tmp{1}(1,:)=1-A{1}(1,:);
 A_tmp{1}(2,:)= -A{1}(2,:);
-end
 
 
 %--------------------------------------------
@@ -64,19 +60,10 @@ while ~converged && t<maxitr
     
     C=bsxfun(@rdivide,  ((-1).^v./factorial(v))'...
         ,  B{1}(2,:) )  ;
-    if n==0&&q==0
-         B_num=prodgamma(Poles_B,B_tmp{1});
-         A_num=1;
-     B_den=1;
-    A_den=p1;
-     else
-        
     B_num=prodgamma(Poles_B,B_tmp{1});
     A_num=prodgamma(Poles_B,A_tmp{1});
     B_den=prodgamma(Poles_B,B_tmp{2});
     A_den=prodgamma(Poles_B,A_tmp{2});
-        end
-
     Z=x.^(-Poles_B);
     
     tmp=C.*(B_num.*A_num)./(B_den.*A_den).*Z;
@@ -97,7 +84,7 @@ end
 %--------------------
 
 if converged
-    fprintf('Fox H function is converged in %d steps.\n',v);
+   % fprintf('Fox H function is converged in %d steps.\n',v);
 else
     fprintf('Fox H function is NOT converged in %d steps.\n',maxitr);
 end

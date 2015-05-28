@@ -5,9 +5,10 @@ close all;
 
 
 
-row =256 ;     col =256 ;     data = zeros(row,col,9);
-filePath = 'C:\Users\Administrator\Desktop\AIRSAR_SanFrancisco\C3\';
-
+filePath = 'C:\Users\Administrator\Desktop\data_polsar\AIRSAR_SanFrancisco\C3\';
+row=900;
+col=1024;
+data = zeros(row,col,9);
 fIn = fopen([filePath 'C11.bin'],'r');
 data(:,:,1) = fread(fIn,[col,row],'float').';     fclose(fIn);
 % SarPowerHisteq(data(:,:,1));
@@ -75,8 +76,8 @@ c3 = m3 - 3*m1*m2 + 2*m1^3;
 val_left=c2^3/c3^2;
 
 % 
-% f=@(k)norm(psi(1,k).^3/psi(2,k).^2-val_left).^2;
-% [k,err]=fminsearch(f,1e-5);
+f=@(k)norm(psi(1,k).^3/psi(2,k).^2-val_left).^2;
+[k,err]=fminsearch(f,1e-5);
 
 
 

@@ -2,8 +2,11 @@ clc;
 clear all;
 
 
-row =83;     col =83 ;     data = zeros(row,col,9);
-filePath = 'C:\Users\Administrator\Desktop\polsardata\C3\';
+
+filePath = 'C:\Users\Administrator\Desktop\data_polsar\AIRSAR_SanFrancisco\C3\';
+row=900;
+col=1024;
+data = zeros(row,col,9);
 %filePath = 'C:\Users\Administrator\Desktop\AIRSAR_SanFrancisco\C3\';
 fIn = fopen([filePath 'C11.bin'],'r');
 data(:,:,1) = fread(fIn,[col,row],'float').';     fclose(fIn);
@@ -79,16 +82,33 @@ f=@(k)norm(psi(1,k).^3/psi(2,k).^2-val_left).^2;
 
 v=(psi(1,k)/c2).^0.5;
 
+if c3<0
+    v=-v;
+end
+
 d=exp(real(c1)-psi(0,k)/real(v));
 
 
-
+chh=0;
+chv=0;
+cvv=0;
 
 %calculate the covariance of the noise
 
+for p=1:row
+    for q=1:col
+        chh=log(c11(p,q))+chh;
+        chv=log(c22(p,q))+chv;
+        cvv=log(c33(p,q))+cvv;
+    end
+end
+chh=chh/num;
+chv=chv/num;
+cvv=cvv/num;
 
-up_stat=(gamma(k+1/real(v))*exp(real(c1)-psi(1)-psi(k)/real(v)))/gamma(k);
-
+covchh=(gamma(k+1/real(v))*exp(real(chh)-psi(4)-psi(k)/real(v)))/gamma(k);
+covchv=(gamma(k+1/real(v))*exp(real(chv)-psi(4)-psi(k)/real(v)))/gamma(k);
+covcvv=(gamma(k+1/real(v))*exp(real(cvv)-psi(4)-psi(k)/real(v)))/gamma(k);
 
 
 

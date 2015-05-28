@@ -5,10 +5,16 @@ clear all;
 
 
   
-filePath = 'C:\Users\Administrator\Desktop\data_polsar\AIRSAR_SanFrancisco\A\C3\';
-row=161;
-col=161;
-[k,d,v,covhh,covhv,covvv,ksd_hh,ksd_hv,ksd_vv]=ParameterEstimation(filePath,row,col);
+filePath = 'C:\Users\Administrator\Desktop\data_polsar\AIRSAR_SanFrancisco\C3\';
+row=900;
+col=1024;
+[k,d,v,covhh,covhv,covvv]=ParameterEstimation(filePath,row,col);
+
+
+[k_a,d_a,v_a]=mlcparameter(filePath,row,col);
+
+
+
 
 
 

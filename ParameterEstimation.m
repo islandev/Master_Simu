@@ -1,4 +1,4 @@
-function [ k,d,v ,covchh,covchv,covcvv,ksd_hh,ksd_hv,ksd_vv] = ParameterEstimation( filePath,row,col )
+function [ k,d,v ,covchh,covchv,covcvv] = ParameterEstimation( filePath,row,col )
 %UNTITLED Summary of this function goes here
 %输入：数据的位置 ，数据的行 列
 %输出：H-wishart的参数 k d  v 乘性噪声的方差
@@ -49,10 +49,9 @@ for s=1:row
     end
 end
 
-m1=m1/num;
-m2=m2/num;
-m3=m3/num;
-
+m1=m1/num
+m2=m2/num
+m3=m3/num
 
 
 %d_matrix=[c11,zmatrxi,zmatrxi;zmatrxi,c22,zmatrxi;zmatrxi,zmatrxi,c33];
@@ -66,9 +65,9 @@ m3=m3/num;
 
 
 
-c1 =real( m1);
-c2 =real( m2 - m1^2);
-c3 = real(m3 - 3*m1*m2 + 2*m1^3);
+c1 =real( m1)
+c2 =real( m2 - m1^2)
+c3 = real(m3 - 3*m1*m2 + 2*m1^3)
 
 val_left=c2^3/c3^2; 
 
@@ -77,7 +76,9 @@ f=@(k)norm(psi(1,k).^3/psi(2,k).^2-val_left).^2;
 [k,err]=fminsearch(f,0);
 
 v=(psi(1,k)/c2).^0.5;
-
+if c3<0
+    v=-v;
+end
 d=exp(real(c1)-psi(0,k)/real(v));
 
 
@@ -105,13 +106,11 @@ cvv=cvv/num;
 covchh=(gamma(k+1/real(v))*exp(real(chh)-psi(1)-psi(k)/real(v)))/gamma(k);
 covchv=(gamma(k+1/real(v))*exp(real(chv)-psi(1)-psi(k)/real(v)))/gamma(k);
 covcvv=(gamma(k+1/real(v))*exp(real(cvv)-psi(1)-psi(k)/real(v)))/gamma(k);
-L=9;
+L=4;
 dim=1;
-
-
-ksd_hh=HWishartKSD(c11,k,v,d ,covchh,col,row,L,dim);
-ksd_hv=HWishartKSD(c22,k,v,d ,covchv,col,row,L,dim);
-ksd_vv=HWishartKSD(c33,k,v,d ,covcvv,col,row,L,dim);
+% 
+% 
+ksd=HWishartKSD( c11,k,v,d ,covchh,col,row,L,dim)
 
 
 
