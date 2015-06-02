@@ -65,21 +65,26 @@ m3=m3/num
 
 
 
+% c1 =real( m1)
+% c2 =real( m2 - m1^2)
+% c3 = real(m3 - 3*m1*m2 + 2*m1^3)
+
 c1 =real( m1)
 c2 =real( m2 - m1^2)
 c3 = real(m3 - 3*m1*m2 + 2*m1^3)
 
-val_left=c2^3/c3^2; 
+
+val_left=c2^3/c3^2
 
 
 f=@(k)norm(psi(1,k).^3/psi(2,k).^2-val_left).^2;
 [k,err]=fminsearch(f,0);
 
 v=(psi(1,k)/c2).^0.5;
-if c3<0
+if c3>0
     v=-v;
 end
-d=exp(real(c1)-psi(0,k)/real(v));
+d=gamma(k)/gamma(k+(1/v));
 
 
 
@@ -106,11 +111,6 @@ cvv=cvv/num;
 covchh=(gamma(k+1/real(v))*exp(real(chh)-psi(1)-psi(k)/real(v)))/gamma(k);
 covchv=(gamma(k+1/real(v))*exp(real(chv)-psi(1)-psi(k)/real(v)))/gamma(k);
 covcvv=(gamma(k+1/real(v))*exp(real(cvv)-psi(1)-psi(k)/real(v)))/gamma(k);
-L=4;
-dim=1;
-% 
-% 
-ksd=HWishartKSD( c11,k,v,d ,covchh,col,row,L,dim)
 
 
 

@@ -29,23 +29,20 @@ q=size(B{2},2);
 
 n=size(A{1},2);
 p=size(A{2},2);
-
-if m==1&&n==1
-    B_tmp=B;
-
-
-A_tmp=A;
-A_tmp{1}(1,:)=1-A{1}(1,:);
-A_tmp{1}(2,:)= -A{1}(2,:);
-else
 B_tmp=B;
-B_tmp{2}(1,:)=1-B{2}(1,:);
-B_tmp{2}(2,:)= -B{2}(2,:);
+if q~=0
+    B_tmp{2}(1,:)=1-B{2}(1,:);
+    B_tmp{2}(2,:)= -B{2}(2,:)
+end
 
 A_tmp=A;
+if n~=0
 A_tmp{1}(1,:)=1-A{1}(1,:);
+end
+if p~=0
 A_tmp{1}(2,:)= -A{1}(2,:);
 end
+
 
 %--------------------------------------------
 % Evaluation
@@ -68,18 +65,22 @@ while ~converged && t<maxitr
     
     C=bsxfun(@rdivide,  ((-1).^v./factorial(v))'...
         ,  B{1}(2,:) )  ;
-    
-if m==1&&n==1
-    B_num=prodgamma(Poles_B,B_tmp{1});
-    A_num=prodgamma(Poles_B,A_tmp{1});
+    B_num=1;
+    A_num=1;
     B_den=1;
     A_den=1;
-else
+    if m~=0
     B_num=prodgamma(Poles_B,B_tmp{1});
+    end
+    if n~=0
     A_num=prodgamma(Poles_B,A_tmp{1});
+    end
+    if q~=0
     B_den=prodgamma(Poles_B,B_tmp{2});
+    end
+    if p~=0
     A_den=prodgamma(Poles_B,A_tmp{2});
-end
+    end
     Z=x.^(-Poles_B);
     
     tmp=C.*(B_num.*A_num)./(B_den.*A_den).*Z;
@@ -105,7 +106,7 @@ else
     fprintf('Fox H function is NOT converged in %d steps.\n',maxitr);
 end
 
-y=y_new;
+y=y_new
 
 
 
