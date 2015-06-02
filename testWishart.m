@@ -15,5 +15,5 @@ for i=0:1000
    
 end
 
-plot(x,y)
+plot(x,y);
 
