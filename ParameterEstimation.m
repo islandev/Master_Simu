@@ -4,7 +4,7 @@ function [ k,sigma,v ,covchh,covchv,covcvv] = ParameterEstimation( filePath,row,
 %输出：H-wishart的参数 k d  v 乘性噪声的方差
 
 d=3;
-L=9;
+L=4;
 data = zeros(row,col,9);
 
 fIn = fopen([filePath 'C11.bin'],'r');
@@ -110,15 +110,13 @@ chh=chh/num;
 chv=chv/num;
 cvv=cvv/num;
 
-covchh=(gamma(k+1/real(v))*exp(real(chh)-psi(1)-psi(k)/real(v)))/gamma(k);
-covchv=(gamma(k+1/real(v))*exp(real(chv)-psi(1)-psi(k)/real(v)))/gamma(k);
-covcvv=(gamma(k+1/real(v))*exp(real(cvv)-psi(1)-psi(k)/real(v)))/gamma(k);
+
 
 
 
 %calculate the k-s distance
 
-
+covhh=exp(c11-sumpis(d,L,0)-logL+log(sigma)-psi(0,k)/v)
 
 
 

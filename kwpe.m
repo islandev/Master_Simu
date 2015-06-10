@@ -1,10 +1,10 @@
-function [ k,d,v ,covchh,covchv,covcvv] = ParameterEstimation( filePath,row,col )
+function [ sigma,cov] = kwpe( filePath,row,col )
 %UNTITLED Summary of this function goes here
 %输入：数据的位置 ，数据的行 列
 %输出：H-wishart的参数 k d  v 乘性噪声的方差
 
 d=3;
-L=9;
+L=4;
 data = zeros(row,col,9);
 
 fIn = fopen([filePath 'C11.bin'],'r');
@@ -72,51 +72,12 @@ m3=m3/num
 % c3 = real(m3 - 3*m1*m2 + 2*m1^3)
 
 
-c2 =real( m2 - m1^2)-sumpsi(d,L,1);
-c3 = real(m3 - 3*m1*m2 + 2*m1^3)-sumpsi(d,L,2);
+c2 =real( m2 - m1^2)-sumpsi(d,L,1)
+% c3 = real(m3 - 3*m1*m2 + 2*m1^3)-sumpsi(d,L,2)
 
+f=@(sigma)norm(d^2*psi(1,sigma)-c2).^2;
+[sigma,err]=fminsearch(f,0);
 
-val_left=c2^3/c3^2
-
-
-f=@(k)norm(psi(1,k).^3/psi(2,k).^2-val_left).^2;
-[k,err]=fminsearch(f,0);
-
-v=(psi(1,k)/c2).^0.5*d;
-if c3>0
-    v=-v;
-end
-=gamma(k)/gamma(k+(1/v));
-
-
-
-
-%calculate the covariance of the noise
-
-
-%cov=(gamma(k+1/real(v))*exp(real(c1)-psi(1)-psi(k)/real(v)))/gamma(k);
-chh=0;
-chv=0;
-cvv=0;
-
-for p=1:row
-    for q=1:col
-        chh=log(c11(p,q))+chh;
-        chv=log(c22(p,q))+chv;
-        cvv=log(c33(p,q))+cvv;
-    end
-end
-chh=chh/num;
-chv=chv/num;
-cvv=cvv/num;
-
-covchh=(gamma(k+1/real(v))*exp(real(chh)-psi(1)-psi(k)/real(v)))/gamma(k);
-covchv=(gamma(k+1/real(v))*exp(real(chv)-psi(1)-psi(k)/real(v)))/gamma(k);
-covcvv=(gamma(k+1/real(v))*exp(real(cvv)-psi(1)-psi(k)/real(v)))/gamma(k);
-
-
-
-%calculate the k-s distance
 
 
 
@@ -124,4 +85,6 @@ covcvv=(gamma(k+1/real(v))*exp(real(cvv)-psi(1)-psi(k)/real(v)))/gamma(k);
 
 
 end
+
+
 
