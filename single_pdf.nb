@@ -1,0 +1,565 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[     18809,        556]
+NotebookOptionsPosition[     16674,        489]
+NotebookOutlinePosition[     17051,        506]
+CellTagsIndexPosition[     17008,        503]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"HWishart", "[", 
+     RowBox[{
+     "covnosise_", ",", "k_", ",", "v_", ",", "l_", ",", "d_", ",", "z_"}], 
+     "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"upstat", ",", "dowstat", ",", "hval", ",", "resultval"}], 
+       "}"}], ",", "\t", 
+      RowBox[{
+       RowBox[{"upstat", "=", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"covnosise", "*", "z"}], ")"}], "^", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"k", "*", "v"}], "-", 
+            RowBox[{"l", "*", "d"}]}], ")"}]}], "*", 
+         RowBox[{"z", "^", 
+          RowBox[{"(", 
+           RowBox[{"l", "-", "d"}], ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"dowstat", "=", 
+        RowBox[{
+         RowBox[{"Gamma", "[", "k", "]"}], "*", 
+         RowBox[{"PolyGamma", "[", 
+          RowBox[{"d", ",", "l"}], "]"}], "*", 
+         RowBox[{"covnosise", "^", "l"}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"hval", "=", 
+        RowBox[{"FoxH", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", "}"}], ",", 
+             RowBox[{"{", "}"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"0", ",", 
+               RowBox[{"1", "/", "v"}]}], "}"}], ",", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"l", "*", "d"}], "-", 
+                RowBox[{"k", "*", "v"}]}], ",", "1"}], "}"}]}], "}"}], ",", 
+           RowBox[{
+            RowBox[{"covnosise", "^", "l"}], "*", 
+            RowBox[{"z", "/", "d"}]}]}], "}"}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"resultval", "=", 
+        RowBox[{"upstat", "*", 
+         RowBox[{"hval", "/", "dowstat"}]}]}], ";", "\[IndentingNewLine]", 
+       "resultval"}]}], "]"}]}], "\[IndentingNewLine]", "clc", 
+   "\[IndentingNewLine]"}]}]], "Input",
+ CellChangeTimes->{
+  3.6399069155280914`*^9, {3.6399069624083576`*^9, 3.6399071164690247`*^9}, {
+   3.639907280176774*^9, 3.639907565735097*^9}, {3.639907623338843*^9, 
+   3.639907637476946*^9}, 3.6399111382685475`*^9, {3.6399114433279963`*^9, 
+   3.6399114496823597`*^9}, 3.6399114933568573`*^9, {3.6399727150431433`*^9, 
+   3.6399727491300926`*^9}, {3.639972860698474*^9, 3.639972860959489*^9}}],
+
+Cell[BoxData["clc"], "Output",
+ CellChangeTimes->{3.6399728614575176`*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.639972732316131*^9, 3.639972751619235*^9}}],
+
+Cell[BoxData[
+ RowBox[{"PolyGamma", "[", "4", "]"}]], "Input",
+ CellChangeTimes->{{3.6399727527563004`*^9, 3.6399727688412204`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(", 
+   RowBox[{
+    FractionBox["11", "6"], "-", "EulerGamma"}], ")"}], "*", 
+  RowBox[{"Gamma", "[", "9.1106", "]"}]}]], "Input",
+ CellChangeTimes->{{3.6399727802228713`*^9, 3.6399728101865854`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"64221.879474683694", "*", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"1.873536984062531", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"(", 
+       RowBox[{"-", "7"}], ")"}]}]}], ")"}], "^", 
+   RowBox[{"-", "1"}]}]}]], "Input",
+ CellChangeTimes->{{3.6399728157399025`*^9, 3.6399728413653684`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{"3.427841564964817`*^11", "\[IndentingNewLine]", "clc", "\
+\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.639972852743019*^9, 3.6399728558441963`*^9}}],
+
+Cell[BoxData["3.427841564964817`*^11"], "Output",
+ CellChangeTimes->{3.639972856200217*^9}],
+
+Cell[BoxData["clc"], "Output",
+ CellChangeTimes->{3.639972856202217*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"HWishart", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"1.873536984062531", "*", 
+     RowBox[{"10", "^", 
+      RowBox[{"(", 
+       RowBox[{"-", "7"}], ")"}]}]}], ",", "9.1106", ",", "0.1249", ",", "4", 
+    ",", "1", ",", "0.0031"}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"Gamma", "[", "2", "]"}]}], "Input",
+ CellChangeTimes->{{3.639911109189884*^9, 3.6399111503252373`*^9}, {
+  3.6399111968879004`*^9, 3.63991120667146*^9}, {3.6399113270263443`*^9, 
+  3.639911460278966*^9}, {3.639911515115102*^9, 3.6399115172582245`*^9}, {
+  3.639972621425789*^9, 3.6399726317703805`*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"1.873536984062531`*^-7", " ", "HWishart"}], ",", 
+   RowBox[{"9.1106`", " ", "HWishart"}], ",", 
+   RowBox[{"0.1249`", " ", "HWishart"}], ",", 
+   RowBox[{"4", " ", "HWishart"}], ",", "HWishart", ",", 
+   RowBox[{"0.0031`", " ", "HWishart"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.6399113930891223`*^9, 3.639911455833711*^9}, {
+  3.6399726088800707`*^9, 3.6399726324744205`*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"PolyGamma", "[", 
+  RowBox[{"4", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.639972636172632*^9, 3.639972667402418*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"PolyGamma", "[", 
+  RowBox[{"4", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{3.63997272145751*^9}],
+
+Cell[BoxData[
+ RowBox[{"PolyGamma", "[", 
+  RowBox[{"4", ",", "3"}], "]"}]], "Output",
+ CellChangeTimes->{3.639972721493512*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["PolyGamma"], "Input",
+ CellChangeTimes->{{3.6399726723317003`*^9, 3.639972682392276*^9}}],
+
+Cell[BoxData["PolyGamma"], "Output",
+ CellChangeTimes->{3.6399726837423525`*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.6399111510652795`*^9, 3.63991115107628*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.639911153133398*^9, 3.6399111531734*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "sntxi"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:4e0d\:5b8c\:5168\:8868\:8fbe\:5f0f\:ff1b\:9700\:8981\
+\:66f4\:591a\:8f93\:5165 \[NoBreak]\\!\\(\\\"\\\"\\)\[NoBreak].\"\>"}]], \
+"Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071221550665`*^9}, {
+   3.6399073186510344`*^9, 3.6399073415291805`*^9}, 3.6399074929573603`*^9, {
+   3.639911164235033*^9, 3.639911164609054*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "tsntxi"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\\\"\[NoBreak]\\!\\(d, l\\)\[NoBreak]\\\" \:4e0d\:5b8c\
+\:6574\:ff1b\:9700\:8981\:66f4\:591a\:8f93\:5165.\[NoBreak]\\!\\(\\\"\\\"\\)\
+\[NoBreak]\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071221550665`*^9}, {
+   3.6399073186510344`*^9, 3.6399073415291805`*^9}, 3.63990749285436*^9, 
+   3.63990756806323*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "sntxf"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\\\"\[NoBreak]\\!\\((\\)\[NoBreak]\\\" \:540e\:9762\:4e0d\
+\:80fd\:8ddf\:7740 \\\"\[NoBreak]\\!\\(d, l)\\)\[NoBreak]\\\"\[NoBreak]\\!\\(\
+\\\"\\\"\\)\[NoBreak].\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071221550665`*^9}, {
+   3.6399073186510344`*^9, 3.6399073415291805`*^9}, 3.6399074927643595`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "sntxi"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:4e0d\:5b8c\:5168\:8868\:8fbe\:5f0f\:ff1b\:9700\:8981\
+\:66f4\:591a\:8f93\:5165 \[NoBreak]\\!\\(\\\"\\\"\\)\[NoBreak].\"\>"}]], \
+"Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071221550665`*^9}, {
+   3.6399073186510344`*^9, 3.6399073415291805`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "tsntxi"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\\\"\[NoBreak]\\!\\(d, l\\)\[NoBreak]\\\" \:4e0d\:5b8c\
+\:6574\:ff1b\:9700\:8981\:66f4\:591a\:8f93\:5165.\[NoBreak]\\!\\(\\\"\\\"\\)\
+\[NoBreak]\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071221550665`*^9}, {
+   3.6399073186510344`*^9, 3.6399073414841785`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "sntxf"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\\\"\[NoBreak]\\!\\((\\)\[NoBreak]\\\" \:540e\:9762\:4e0d\
+\:80fd\:8ddf\:7740 \\\"\[NoBreak]\\!\\(d, l)\\)\[NoBreak]\\\"\[NoBreak]\\!\\(\
+\\\"\\\"\\)\[NoBreak].\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071221550665`*^9}, {
+   3.6399073186510344`*^9, 3.6399073413541784`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "sntxi"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:4e0d\:5b8c\:5168\:8868\:8fbe\:5f0f\:ff1b\:9700\:8981\
+\:66f4\:591a\:8f93\:5165 \[NoBreak]\\!\\(\\\"\\\"\\)\[NoBreak].\"\>"}]], \
+"Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071221550665`*^9}, 
+   3.6399073186510344`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "tsntxi"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\\\"\[NoBreak]\\!\\(d, L\\)\[NoBreak]\\\" \:4e0d\:5b8c\
+\:6574\:ff1b\:9700\:8981\:66f4\:591a\:8f93\:5165.\[NoBreak]\\!\\(\\\"\\\"\\)\
+\[NoBreak]\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071221550665`*^9}, 
+   3.639907318565034*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "sntxf"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\\\"\[NoBreak]\\!\\((\\)\[NoBreak]\\\" \:540e\:9762\:4e0d\
+\:80fd\:8ddf\:7740 \\\"\[NoBreak]\\!\\(d, L)\\)\[NoBreak]\\\"\[NoBreak]\\!\\(\
+\\\"\\\"\\)\[NoBreak].\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071221550665`*^9}, 
+   3.639907318468033*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "sntxi"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:4e0d\:5b8c\:5168\:8868\:8fbe\:5f0f\:ff1b\:9700\:8981\
+\:66f4\:591a\:8f93\:5165 \[NoBreak]\\!\\(\\\"\\\"\\)\[NoBreak].\"\>"}]], \
+"Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071221550665`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "bktmcp"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:8868\:8fbe\:5f0f \\\"\[NoBreak]\\!\\((cov_nosise * z \
+\\()\\^\\(\\(\\(k * v\\)\\) - \\(\\(l * d\\)\\)\\)\\)\\)\[NoBreak]\\\" \:6ca1\
+\:6709\:540e\:9762\:7684 \\\"\[NoBreak]\\!\\(\\\")\\\"\\)\[NoBreak]\\\"\
+\[NoBreak]\\!\\(\\\"\\\"\\)\[NoBreak].\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071220730658`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "bktmcp"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:8868\:8fbe\:5f0f \\\"\[NoBreak]\\!\\((cov_nosise * z \
+\\()\\^\\(\\(\\(k * v\\)\\) - \\(\\(l * d\\)\\)\\)\\)\\)\[NoBreak]\\\" \:6ca1\
+\:6709\:540e\:9762\:7684 \\\"\[NoBreak]\\!\\(\\\")\\\"\\)\[NoBreak]\\\"\
+\[NoBreak]\\!\\(\\\"\\\"\\)\[NoBreak].\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071219830656`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "sntxi"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:4e0d\:5b8c\:5168\:8868\:8fbe\:5f0f\:ff1b\:9700\:8981\
+\:66f4\:591a\:8f93\:5165 \[NoBreak]\\!\\(\\\"\\\"\\)\[NoBreak].\"\>"}]], \
+"Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.639907107870784*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "bktmcp"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:8868\:8fbe\:5f0f \\\"\[NoBreak]\\!\\((cov_nosise * z \
+\\()\\^\\((\\(\\(k * v\\)\\) - \\(\\(l * d\\)\\))\\)\\)\\)\[NoBreak]\\\" \
+\:6ca1\:6709\:540e\:9762\:7684 \\\"\[NoBreak]\\!\\(\\\")\\\"\\)\[NoBreak]\\\"\
+\[NoBreak]\\!\\(\\\"\\\"\\)\[NoBreak].\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399071077827787`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "bktmcp"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:8868\:8fbe\:5f0f \\\"\[NoBreak]\\!\\((cov_nosise * z \
+\\()\\^\\((\\(\\(k * v\\)\\) - \\(\\(l * d\\)\\))\\)\\)\\)\[NoBreak]\\\" \
+\:6ca1\:6709\:540e\:9762\:7684 \\\"\[NoBreak]\\!\\(\\\")\\\"\\)\[NoBreak]\\\"\
+\[NoBreak]\\!\\(\\\"\\\"\\)\[NoBreak].\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.639907107689773*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "sntxi"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:4e0d\:5b8c\:5168\:8868\:8fbe\:5f0f\:ff1b\:9700\:8981\
+\:66f4\:591a\:8f93\:5165 \[NoBreak]\\!\\(\\\"\\\"\\)\[NoBreak].\"\>"}]], \
+"Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.63990710553165*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "bktmcp"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:8868\:8fbe\:5f0f \\\"\[NoBreak]\\!\\((cov_nosise * z \
+\\()\\^\\((kv - ld)\\)\\)\\)\[NoBreak]\\\" \:6ca1\:6709\:540e\:9762\:7684 \
+\\\"\[NoBreak]\\!\\(\\\")\\\"\\)\[NoBreak]\\\"\[NoBreak]\\!\\(\\\"\\\"\\)\
+\[NoBreak].\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.6399070870075903`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "bktmcp"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:8868\:8fbe\:5f0f \\\"\[NoBreak]\\!\\((cov_nosise * z \
+\\()\\^\\((kv - ld)\\)\\)\\)\[NoBreak]\\\" \:6ca1\:6709\:540e\:9762\:7684 \
+\\\"\[NoBreak]\\!\\(\\\")\\\"\\)\[NoBreak]\\\"\[NoBreak]\\!\\(\\\"\\\"\\)\
+\[NoBreak].\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.639907036081001*^9, {3.6399070841274257`*^9, 3.639907086919585*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "bktmcp"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:8868\:8fbe\:5f0f \\\"\[NoBreak]\\!\\((cov_nosise * z \
+\\()\\^\\((kv - ld)\\)\\)\\)\[NoBreak]\\\" \:6ca1\:6709\:540e\:9762\:7684 \
+\\\"\[NoBreak]\\!\\(\\\")\\\"\\)\[NoBreak]\\\"\[NoBreak]\\!\\(\\\"\\\"\\)\
+\[NoBreak].\"\>"}]], "Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{3.639907036081001*^9, 3.6399070841274257`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "bktmcp"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:8868\:8fbe\:5f0f \\\"\[NoBreak]\\!\\((cov_nosise * z \
+\\()\\^\\((kv - ld)\\)\\)\\)\[NoBreak]\\\" \:6ca1\:6709\:540e\:9762\:7684 \
+\\\"\[NoBreak]\\!\\(\\\")\\\"\\)\[NoBreak]\\\"\[NoBreak]\\!\\(\\\"\\\"\\)\
+\[NoBreak].\"\>"}]], "Message", "MSG",
+ CellChangeTimes->{3.6399070361740026`*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"Syntax", "::", "sntxi"}], "MessageName"], 
+  RowBox[{
+  ":", " "}], "\<\"\:4e0d\:5b8c\:5168\:8868\:8fbe\:5f0f\:ff1b\:9700\:8981\
+\:66f4\:591a\:8f93\:5165 \[NoBreak]\\!\\(\\\"\\\"\\)\[NoBreak].\"\>"}]], \
+"Message", "MSG",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{3.639907036261004*^9, 3.6399111792168894`*^9}]
+}, Open  ]],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.639906910532055*^9, 3.639906910542055*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{3.6399069136270795`*^9}]
+},
+WindowSize->{707, 677},
+WindowMargins->{{Automatic, 380}, {Automatic, 58}},
+ShowSelection->True,
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (2013\:5e742\:670813\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 2455, 64, 212, "Input"],
+Cell[3037, 88, 74, 1, 31, "Output"]
+}, Open  ]],
+Cell[3126, 92, 92, 1, 31, InheritFromParent],
+Cell[3221, 95, 132, 2, 31, InheritFromParent],
+Cell[3356, 99, 236, 6, 46, InheritFromParent],
+Cell[3595, 107, 320, 9, 31, InheritFromParent],
+Cell[CellGroupData[{
+Cell[3940, 120, 173, 2, 72, InheritFromParent],
+Cell[4116, 124, 91, 1, 31, "Output"],
+Cell[4210, 127, 72, 1, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4319, 133, 605, 13, 52, "Input"],
+Cell[4927, 148, 435, 9, 55, "Output"]
+}, Open  ]],
+Cell[5377, 160, 151, 3, 31, InheritFromParent],
+Cell[CellGroupData[{
+Cell[5553, 167, 126, 3, 31, InheritFromParent],
+Cell[5682, 172, 128, 3, 31, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5847, 180, 103, 1, 31, "Input"],
+Cell[5953, 183, 80, 1, 31, "Output"]
+}, Open  ]],
+Cell[6048, 187, 93, 1, 31, "Input"],
+Cell[CellGroupData[{
+Cell[6166, 192, 90, 1, 31, "Input"],
+Cell[6259, 195, 542, 13, 24, "Message"],
+Cell[6804, 210, 538, 13, 24, "Message"],
+Cell[7345, 225, 531, 12, 24, "Message"],
+Cell[7879, 239, 468, 12, 24, "Message"],
+Cell[8350, 253, 492, 12, 24, "Message"],
+Cell[8845, 267, 507, 12, 24, "Message"],
+Cell[9355, 281, 442, 12, 24, "Message"],
+Cell[9800, 295, 464, 12, 24, "Message"],
+Cell[10267, 309, 479, 12, 24, "Message"],
+Cell[10749, 323, 414, 11, 24, "Message"],
+Cell[11166, 336, 541, 12, 26, "Message"],
+Cell[11710, 350, 541, 12, 26, "Message"],
+Cell[12254, 364, 412, 11, 24, "Message"],
+Cell[12669, 377, 543, 12, 26, "Message"],
+Cell[13215, 391, 541, 12, 26, "Message"],
+Cell[13759, 405, 411, 11, 24, "Message"],
+Cell[14173, 418, 513, 12, 26, "Message"],
+Cell[14689, 432, 511, 12, 26, "Message"],
+Cell[15203, 446, 484, 11, 26, "Message"],
+Cell[15690, 459, 412, 9, 26, "Message"],
+Cell[16105, 470, 385, 10, 24, "Message"]
+}, Open  ]],
+Cell[16505, 483, 92, 1, 31, "Input"],
+Cell[16600, 486, 70, 1, 31, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
