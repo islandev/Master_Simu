@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 function [  k_array,sigma_a,v_array  ] = mlcparameter( filePath,row,col )
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 data = zeros(row,col,9);
 d=3;
 L=9;
+=======
+function [  k_array,d_array,v_array  ] = mlcparameter( filePath,row,col )
+%UNTITLED Summary of this function goes here
+%   Detailed explanation goes here
+data = zeros(row,col,9);
+
+>>>>>>> c6aeb1a21731875e96727aeb0dcad5739ec869c9
 fIn = fopen([filePath 'C11.bin'],'r');
 data(:,:,1) = fread(fIn,[col,row],'float').';     fclose(fIn);
 fIn = fopen([filePath 'C22.bin'],'r');
@@ -42,12 +50,23 @@ m2_co=0;
 m3_co=0;
 for s=1:row
     for j=1:col
+<<<<<<< HEAD
        m1_x=(log(c11(s,j))+log(c33(s,j)))/2+m1_x;
        m2_x=((log(c11(s,j)))^2+(log(c33(s,j)))^2)/2+m2_x;
        m3_x=((log(c11(s,j)))^3+(log(c33(s,j)))^3)/2+m3_x;
        m1_co=log(c22(s,j))+m1_co;
        m2_co=(log(c22(s,j)))^2+m2_co;
        m3_co=(log(c22(s,j))^3)+m3_co;
+=======
+        z_matrix=[c11(s,j),c12(s,j),c13(s,j);c21(s,j),c22(s,j),c23(s,j);c31(s,j),c32(s,j),c33(s,j)];
+        c_matrix=[c11(s,j),0,0;0,c22(s,j),0;0,0,c33(s,j)];
+        m1_co=log(det(c_matrix))+m1_co;
+        m2_co=log(det(c_matrix))^2+m2_co;
+        m3_co=log(det(c_matrix))^3+m3_co;
+        m1_x=log(det(z_matrix))-log(det(c_matrix))+m1_x;
+        m2_x=log(det(z_matrix)-det(c_matrix))^2+m2_x;
+        m3_x=log(det(z_matrix)-det(c_matrix))^3+m3_x;
+>>>>>>> c6aeb1a21731875e96727aeb0dcad5739ec869c9
     end
 end
 
@@ -55,9 +74,13 @@ m1_x=m1_x/num
 m2_x=m2_x/num
 m3_x=m3_x/num
 
+<<<<<<< HEAD
 m1_co=m1_co/num
 m2_co=m2_co/num
 m3_co=m3_co/num
+=======
+
+>>>>>>> c6aeb1a21731875e96727aeb0dcad5739ec869c9
 
 
 %d_matrix=[c11,zmatrxi,zmatrxi;zmatrxi,c22,zmatrxi;zmatrxi,zmatrxi,c33];
@@ -71,6 +94,7 @@ m3_co=m3_co/num
 
 
 
+<<<<<<< HEAD
 c1_x =real( m1_x);
 c2_x =real( m2_x - m1_x^2)-sumpsi(d,L,1);
 c3_x = real(m3_x - 3*m1_x*m2_x + 2*m1_x^3)-sumpsi(d,L,2);
@@ -83,6 +107,47 @@ c3_x = real(m3_x - 3*m1_x*m2_x + 2*m1_x^3)-sumpsi(d,L,2);
 c1_co =real( m1_co);
 c2_co =real( m2_co- m1_co^2)-sumpsi(d,L,1);
 c3_co = real(m3_co - 3*m1_co*m2_co + 2*m1_co^3)-sumpsi(d,L,2);
+=======
+c1 =real( m1_x)
+c2 =real( m2_x - m1_x^2)
+c3 = real(m3_x - 3*m1_x*m2_x + 2*m1_x^3)
+
+
+
+
+
+val_left=c2^3/c3^2;
+
+
+
+f=@(k)norm(psi(1,k).^3/psi(2,k).^2-val_left).^2;
+[k,err]=fminsearch(f,0);
+
+v=(psi(1,k)/c2).^0.5;
+if c3<0
+    v=-v;
+end
+d=exp(real(c1)-psi(0,k)/real(v));
+
+
+
+
+%calculate the covariance of the noise
+
+
+%up_stat=(gamma(k+1/real(v))*exp(real(c1)-psi(1)-psi(k)/real(v)))/gamma(k);
+
+
+
+m1_co=m1_co/num
+m2_co=m2_co/num
+m3_co=m3_co/num
+
+
+c1_co =real( m1_co)
+c2_co =real( m2_co- m1_co^2)
+c3_co = real(m3_co - 3*m1_co*m2_co + 2*m1_co^3)
+>>>>>>> c6aeb1a21731875e96727aeb0dcad5739ec869c9
 
 
 
@@ -93,6 +158,7 @@ val_left_co =c2_co ^3/c3_co^2;
 f_co =@(k_co )norm(psi(1,k_co ).^3/psi(2,k_co ).^2-val_left_co ).^2;
 [k_co ,err_co ]=fminsearch(f_co ,0);
 
+<<<<<<< HEAD
 v_co =(psi(1,k_co )/c2_co).^0.5*d;
 if c3_co<0
     v_co=-v_co;
@@ -118,6 +184,23 @@ v_array(1)=v_co;
 v_array(2)=v_x;
 sigma_a(1)=sigma_co;
 sigma_a(2)=sigma_x;
+=======
+v_co =(psi(1,k_co )/c2).^0.5;
+if c3_co<0
+    v_co=-v_co;
+end
+d_co =exp(real(c1_co )-psi(0,k_co )/real(v_co ));
+
+
+k_array(1)=k;
+k_array(2)=k_co;
+
+d_array(1)=d;
+d_array(2)=d_co;
+
+v_array(1)=v;
+v_array(2)=v_co;
+>>>>>>> c6aeb1a21731875e96727aeb0dcad5739ec869c9
 
 end
 
