@@ -1,9 +1,9 @@
 clc
 clear all;
-k= 3.5216;
-v= 1.1213;
-cov=0.0172;
-L=9;
+k= 5.38;
+v= -1.156;
+cov=1.73e04;
+L=4;
 dim=1;
 sigma=gamma(k)/gamma(k+1/v);
 res=1e-8;
@@ -40,5 +40,5 @@ end
 
 
 
-yp=datatransfer(y);
+
 plot(x,y);

@@ -1,9 +1,9 @@
 clc
 clear all;
-k=9.6960;
-v=-0.9131;
-cov=0.0172;
-L=9;
+k=3.56;
+v=1.13;
+cov=0.075;
+L=4;
 dim=1;
 d=gamma(k)/gamma(k+1/v);
 res=1e-8;

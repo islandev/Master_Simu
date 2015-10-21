@@ -13,8 +13,8 @@ end
 
 for i=1: size(c_array,2)-step
     r_array(i)=val_sum/step;
-    val_sum=val_sum-c_array(i)+c_array(i+step)
+    val_sum=val_sum-c_array(i)+c_array(i+step);
 end
-
+r_array(1)=0;
 end
 

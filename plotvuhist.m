@@ -5,9 +5,9 @@ clear all;
 
 %%filePath = 'H:\毕设\StOfGibraltar_R2_FineQuad3_HH_VV_HV_VH_SLC\PK6626_DK340_FQ3_20080331_181047_HH_VV_HV_VH_SLC_(StOfGibraltar_Promo)\C3\';
 %%filePath = 'C:\Users\Administrator\Desktop\data_polsar\ESAR_Oberpfaffenhofen\T3\';
-filePath = 'C:\Users\Administrator\Desktop\data_polsar\AIRSAR_SanFrancisco\sea\C3\';
-row= 127;
-col=127 ;
+filePath = 'C:\Users\Administrator\Desktop\data_polsar\AIRSAR_SanFrancisco\veu\C3\';
+row= 89;
+col=85 ;
 data = zeros(row,col,9);
 bean=200;
 
@@ -65,51 +65,51 @@ x=x(find(x<2));
 L=4;
 d=1
 figure;
-sig1=2.7
-c1=0.15
+sig1=1.5
+c1=0.09
 plot(x,outc1,'b.');
 hold on;
 kc1=kwishartpdf( sig1,c1,L,d )
-ylim([0,7])
+ylim([0,15])
 xlabel('Texture'); %标记横坐标
 ylabel('Pd'); %标记纵坐标
 rc1=keyGen(outc1);
 plot(x,rc1,'r-');
 hold on;
 plot(x,kc1,'kd');
-legend('HH hist-diagram ','H-Wishart','K-distribution')
+legend('HH hist-diagram ','Multi-H-Wishart','H-distribution')
 
 figure;
 plot(x,outc2,'r.');
 hold on;
 
-ylim([0,7])
+ylim([0,15])
 xlabel('Texture') %标记横坐标
 ylabel('Pd') %标记纵坐标
-sig2=5.8
-c2=0.15
+sig2=1.5
+c2=0.07
 kc2=kwishartpdf( sig2,c2,L,d )
 rc2=keyGen(outc2);
 plot(x,rc2);
 plot(x,kc2,'kd')
-legend('HV hist-diagram ','H-Wishart','K-distribution')
-
-figure;
-
-plot(x,outc3,'b.');
-
-hold on;
-ylim([0,5])
-xlabel('Texture') %标记横坐标
-ylabel('Pd') %标记纵坐标
-sig3=2.87
-c3=0.17;
-rc3=keyGen(outc3);
-kc3=kwishartpdf( sig3,c3,L,d )
-plot(x,rc3,'r-');
-plot(x,kc3,'kd')
-
-legend('VV hist-diagram ','h-wishart','k distribution')
+legend('HV hist-diagram ','Multi-H-Wishart','H-distribution')
+% 
+% figure;
+% 
+% plot(x,outc3,'b.');
+% 
+% hold on;
+% ylim([0,5])
+% xlabel('Texture') %标记横坐标
+% ylabel('Pd') %标记纵坐标
+% sig3=2.87
+% c3=0.17;
+% rc3=keyGen(outc3);
+% kc3=kwishartpdf( sig3,c3,L,d )
+% plot(x,rc3,'r-');
+% plot(x,kc3,'kd')
+% 
+% legend('VV hist-diagram ','h-wishart','k distribution')
 
 
 
