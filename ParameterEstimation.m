@@ -4,14 +4,14 @@ function [ k,sigma,v ,cov_hh,cov_hv,cov_vv] = ParameterEstimation( filePath,row,
 function [ k,sigma,v ,covchh,covchv,covcvv] = ParameterEstimation( filePath,row,col )
 >>>>>>> c6aeb1a21731875e96727aeb0dcad5739ec869c9
 %UNTITLED Summary of this function goes here
-%ÊäÈë£ºÊý¾ÝµÄÎ»ÖÃ £¬Êý¾ÝµÄÐÐ ÁÐ
-%Êä³ö£ºH-wishartµÄ²ÎÊý k d  v ³ËÐÔÔëÉùµÄ·½²î
+%ï¿½ï¿½ï¿½ë£ºï¿½ï¿½ï¿½Ýµï¿½Î»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ýµï¿½ï¿½ï¿½ ï¿½ï¿½
+%ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½H-wishartï¿½Ä²ï¿½ï¿½ï¿½ k d  v ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½
 
 d=3;
 L=4;
 data = zeros(row,col,9);
 <<<<<<< HEAD
-%´ÓÎÄ¼þ¼Ð¶ÁÈ¡Êý¾Ý
+%ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ð¶ï¿½È¡ï¿½ï¿½ï¿½ï¿½
 =======
 
 >>>>>>> c6aeb1a21731875e96727aeb0dcad5739ec869c9
@@ -32,9 +32,9 @@ data(:,:,7) = fread(fIn,[col,row],'float').';   fclose(fIn);
 fIn = fopen([filePath 'C13_imag.bin'],'r');
 data(:,:,8) = fread(fIn,[col,row],'float').';   fclose(fIn);
 fIn = fopen([filePath 'C23_imag.bin'],'r');
-data(:,:,9) = fread(fIn,[col,row],'float').';   fclose(fIn); 
+data(:,:,9) = fread(fIn,[col,row],'float').';   fclose(fIn);
 <<<<<<< HEAD
-%¶Ô¾ØÕó½øÐÐ¹¹Ôì
+%ï¿½Ô¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¹ï¿½ï¿½ï¿½
 =======
 
 >>>>>>> c6aeb1a21731875e96727aeb0dcad5739ec869c9
@@ -53,18 +53,14 @@ c21=data(:,:,4)-i*data(:,:,7); %c12
 c31=data(:,:,5)-i*data(:,:,8); %c13
 c32=data(:,:,6)-i*data(:,:,9); %c23
 num=row*col;
-<<<<<<< HEAD
-%Çó»ùÓÚ¾ØÕóµÄ¶ÔÊýÀÛ»ýÁ¿
-=======
 
->>>>>>> c6aeb1a21731875e96727aeb0dcad5739ec869c9
 m1=0;
 m2=0;
 m3=0;
 for s=1:row
     for j=1:col
         z_matrix=[c11(s,j),c12(s,j),c13(s,j);c21(s,j),c22(s,j),c23(s,j);c31(s,j),c32(s,j),c33(s,j)];
-       
+
         m1=log(det(z_matrix))+m1;
         m2=log(det(z_matrix))^2+m2;
         m3=log(det(z_matrix))^3+m3;
@@ -76,23 +72,22 @@ m2=m2/num
 m3=m3/num
 
 
-<<<<<<< HEAD
-=======
+
 %d_matrix=[c11,zmatrxi,zmatrxi;zmatrxi,c22,zmatrxi;zmatrxi,zmatrxi,c33];
 %detd=det(d_matrix)
 
-% 
+%
 % m1=(log(det(c11))+log(det(c22))+log(det(c33)))/3;
 % m2=(log(det(c11))^2+log(det(c22))^2+log(det(c33))^2)/3;
 % m3=(log(det(c11))^3+log(det(c22))^3+log(det(c33))^3)/3;
-% 
+%
 
 
 
 % c1 =real( m1)
 % c2 =real( m2 - m1^2)
 % c3 = real(m3 - 3*m1*m2 + 2*m1^3)
->>>>>>> c6aeb1a21731875e96727aeb0dcad5739ec869c9
+
 
 
 c2 =real( m2 - m1^2)-sumpsi(d,L,1)
@@ -106,23 +101,21 @@ f=@(k)norm(psi(1,k).^3/psi(2,k).^2-val_left).^2;
 [k,err]=fminsearch(f,0);
 
 v=(psi(1,k)/c2).^0.5*d;
-<<<<<<< HEAD
+
 if c3<0
-=======
-if c3>0
->>>>>>> c6aeb1a21731875e96727aeb0dcad5739ec869c9
+
     v=-v;
 end
 sigma=gamma(k)/gamma(k+(1/v));
 
 
-<<<<<<< HEAD
+
 m1_s=0;
 m2_s=0;
 m3_s=0;
 for p=1:row
     for q=1:col
-        
+
        m1_s=m1_s+log(c11(p,q));
        m2_s=m2_s+log(c22(p,q));
        m3_s=m3_s+log(c33(p,q));
@@ -166,8 +159,7 @@ cvv=cvv/num;
 covhh=exp(c11-sumpis(d,L,0)-logL+log(sigma)-psi(0,k)/v)
 
 
->>>>>>> c6aeb1a21731875e96727aeb0dcad5739ec869c9
+
 
 
 end
-
